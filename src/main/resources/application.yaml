@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/gushmoha1?useSSL=false
+    username: root
+    password: root
+    driver-class-name: org.mysql.Driver
+
+#JPA Settings
+  jpa.hibernate.ddl_auto: none
+
+#opciones para JPA settings
+#none → No genera ni modifica tablas (default en producción).
+#validate → Solo valida que las entidades coincidan con el esquema, no cambia nada.
+#update → Actualiza el esquema de la BD según las entidades sin borrar datos.
+#create → Crea el esquema desde cero eliminando las tablas previas en cada arranque.
+#create-drop → Igual que create, pero además elimina las tablas al detener la app.
+
+#url: jdbc:mysql://localhost:3306/dbname?useSSL=false
+#al crear la base rest_demo_db, devolvio este codigo:
+#482a6b26-f2e9-4bf8-aff9-61f0c42cd7c3
