@@ -21,6 +21,10 @@ public class PersonaServiceImpl implements PersonaService {
     @Autowired
     PersonaMapperServiceImpl personaMapper;
 
+    public PersonaServiceImpl(PersonaRepository personaRepository) {
+        this.personaRepository = personaRepository;
+    }
+
     //buscar
     @Override
     public PersonaDTO getPersonaById(Long id) {
@@ -51,10 +55,6 @@ public class PersonaServiceImpl implements PersonaService {
         return this.personaRepository.findAll().stream()
             .map(this.personaMapper::toDTO)
             .collect(Collectors.toList());
-    }
-
-    public PersonaServiceImpl(PersonaRepository personaRepository) {
-        this.personaRepository = personaRepository;
     }
 
     //insertar

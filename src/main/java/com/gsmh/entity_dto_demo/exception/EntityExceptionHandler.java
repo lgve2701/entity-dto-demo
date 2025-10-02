@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class PersonaExceptionHandler {
+public class EntityExceptionHandler {
 
     @ExceptionHandler(value = {PersonaNotFoundException.class})
     public ResponseEntity<Object> handlePersonaNotFoundException(PersonaNotFoundException notFoundEx){
@@ -26,6 +26,16 @@ public class PersonaExceptionHandler {
             HttpStatus.BAD_REQUEST
         );
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = {UsuarioNotFoundException.class})
+    public ResponseEntity<Object> handleUsuarioNotFoundException(UsuarioNotFoundException notFoundEx){
+        UsuarioException ex = new UsuarioException(
+            notFoundEx.getMessage(), 
+            notFoundEx.getCause(), 
+            HttpStatus.NOT_FOUND
+        );
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
 }

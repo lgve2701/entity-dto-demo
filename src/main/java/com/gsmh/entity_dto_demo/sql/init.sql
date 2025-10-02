@@ -79,58 +79,69 @@ from telefono; -- where id_persona = 2;
 // prueba para que truene por longitud de nombre
 //"nombre": "abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz",
 
-//insert
-{
-    "email": "lvasquez@mail.com",
-    "nombre": "Luis",
-    "apellido": "Vasquez",
-    "dpi": "4444-55555-0101",
-    "descripcion": "Descripcion de Luis Vasquez",
-    "direcciones": [
-        {
-            "direccionCompleta": "18av 10-11 zona 1",
-            "codigoPostal": "01010"
-        },
-        {
-            "direccionCompleta": "Av reforma 6-75 z10",
-            "codigoPostal": "01010"
-        }
-    ],
-    "telefonos": [
-        {
-            "numero": "444-44440",
-            "tipo": "celular"
-        },
-        {
-            "numero": "444-44441",
-            "tipo": "hogar"
-        }
-    ]
-}
 
-//update
-{
-    "id": 4,
-    "email": "lvasquez@mail.com",
-    "nombre": "Luis Gabriel",
-    "apellido": "Vasquez Escobar",
-    "dpi": "1234-67890-0101",
-    "telefonos": [
-        {
-            "id": 5,
-            "numero": "555-55550",
-            "tipo": "celular/movil"
-        },
-        {
-            "id": 6,
-            "numero": "666-66661",
-            "tipo": "hogar/oficina"
-        }
-    ]
-}
+// -- PERSONA -- //
 
+    //insert
+    {
+        "email": "lvasquez@mail.com",
+        "nombre": "Luis",
+        "apellido": "Vasquez",
+        "dpi": "4444-55555-0101",
+        "descripcion": "Descripcion de Luis Vasquez",
+        "direcciones": [
+            {
+                "direccionCompleta": "18av 10-11 zona 1",
+                "codigoPostal": "01010"
+            },
+            {
+                "direccionCompleta": "Av reforma 6-75 z10",
+                "codigoPostal": "01010"
+            }
+        ],
+        "telefonos": [
+            {
+                "numero": "444-44440",
+                "tipo": "celular"
+            },
+            {
+                "numero": "444-44441",
+                "tipo": "hogar"
+            }
+        ]
+    }
 
+    //update
+    {
+        "id": 4,
+        "email": "lvasquez@mail.com",
+        "nombre": "Luis Gabriel",
+        "apellido": "Vasquez Escobar",
+        "dpi": "1234-67890-0101",
+        "telefonos": [
+            {
+                "id": 5,
+                "numero": "555-55550",
+                "tipo": "celular/movil"
+            },
+            {
+                "id": 6,
+                "numero": "666-66661",
+                "tipo": "hogar/oficina"
+            }
+        ]
+    }
 
+// -- USUARIO -- //
+
+    {
+        "id": 1,
+        "usuario": "cosme",
+        "contrasena": "fulanito",
+        "displayName": "display_name",
+        "email": "algo@mail.com",
+        "rol": "ROL_USER"
+    }
 
 
 */
