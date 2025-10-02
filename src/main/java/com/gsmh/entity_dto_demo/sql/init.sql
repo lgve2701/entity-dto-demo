@@ -3,6 +3,7 @@ create database if not exists entity_dto_demo;
 drop table direccion;
 drop table telefono;
 drop table persona;
+drop table usuario;
 
 use entity_dto_demo;
 
@@ -28,10 +29,22 @@ use entity_dto_demo;
 		numero varchar(100) not null,
 		tipo varchar(50) null
 	);
+    
+    create table if not exists usuario(
+		id int auto_increment primary key,
+        usuario varchar(50) unique not null,
+        contrasena varchar(500) not null,
+        display_name varchar(100) null,
+        email varchar(100) null,
+        rol varchar(50) not null default 'ROL_USER'
+    );
+    
+	
 
 
 start transaction;
 
+	-- personas, direcciones, telefonos --
 	set @idPersona = 0;
 
 	insert into persona(email, nombre, apellido, dpi, descripcion)
@@ -61,17 +74,24 @@ start transaction;
         values(@idPersona, '555-147258', 'celular');
         insert into telefono(id_persona, numero, tipo)
         values(@idPersona, '222-147258', 'oficina');
+	
+    -- usuario --
+	insert into usuario(usuario, contrasena, display_name, email)
+    values('cosme', 'fulanito', 'display_name', 'algo@mail.com');
 
 -- commit; -- rollback;
 
 use entity_dto_demo;
 
 select *
-from persona; -- where id = 2;
+from persona; -- where id = 4;
 select *
-from direccion; -- where id_persona = 2;
+from direccion; -- where id_persona = 4;
 select *
-from telefono; -- where id_persona = 2;
+from telefono; -- where id_persona = 4;
+
+select *
+from usuario;
 
 /*
 -- pruebas con el api --
@@ -145,5 +165,17 @@ from telefono; -- where id_persona = 2;
 
 
 */
+
+
+start transaction;
+-- rollback;
+
+select @@autocommit;
+
+select pl.USER, pl.STATE, pl.*
+from INFORMATION_SCHEMA.PROCESSLIST pl
+order by pl.STATE;
+-- where pl.STATE = 'starting transaction' or pl.STATE = 'executing';
+
 
 
